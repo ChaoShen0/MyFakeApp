@@ -1,0 +1,4 @@
+.vs/*
+MyFakeApp/bin/*
+MyFakeApp/obj/*
+MyFakeApp-cache/*

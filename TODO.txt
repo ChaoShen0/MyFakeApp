@@ -1,0 +1,3 @@
+temp folder configurable
+GPU dlib build
+CNN alternative, takes a long time

@@ -1,0 +1,166 @@
+﻿<Window ResizeMode="NoResize" SizeToContent="WidthAndHeight" x:Class="MyFakeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyFakeApp"
+        mc:Ignorable="d"
+        Title="MyFakeApp" Height="654" Width="525">
+   <Grid>
+      <TabControl>
+         <TabItem Header="Extract frames">
+            <Grid>
+               <Label Content="Input video file:" Width="100" Margin="10,10,401,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Output directory:" Width="100" Margin="10,42,401,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox1" Height="23" TextWrapping="NoWrap" Margin="128,14,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,46,10,0" Click="Button_Click_1" Height="23" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox2" Height="23" TextWrapping="NoWrap" Margin="128,46,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,14,10,0" Click="Button_Click" Height="23" VerticalAlignment="Top"/>
+               <Label Content="Extract" Margin="10,96,453,0" Height="26" VerticalAlignment="Top"/>
+               <TextBox x:Name="textbox3" Text="1" TextWrapping="NoWrap" Margin="58,100,427,0" Height="19" VerticalAlignment="Top"/>
+               <Label Content="frame(s) per" Margin="89,96,346,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox1" Margin="170,98,261,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="Second" Tag="1"/>
+                  <ComboBoxItem Content="Minute" Tag="60"/>
+                  <ComboBoxItem Content="Hour" Tag="3600"/>
+               </ComboBox>
+               <Button Content="Extract frames" Margin="399,555,10,10" Click="Button_Click_2"/>
+            </Grid>
+         </TabItem>
+         <TabItem Header="Extract faces" >
+            <Grid>
+               <Label Content="Input directory:" Width="100" Margin="10,10,401,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Output directory:" Width="100" Margin="10,42,401,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox4" Height="23" TextWrapping="NoWrap" Margin="128,14,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,46,10,0" Click="Button_Click_4" Height="23" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox5" Height="23" TextWrapping="NoWrap" Margin="128,46,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,14,10,0" Click="Button_Click_3" Height="23" VerticalAlignment="Top"/>
+               <Label Content="Detector:" Width="100" Margin="10,80,401,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox2" Margin="128,82,303,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="HOG" Tag="hog"/>
+                  <ComboBoxItem Content="CNN" Tag="cnn"/>
+               </ComboBox>
+               <Label Content="'CNN' detects much more angles but will be much more resource intensive" Margin="36,107,10,0" Height="25" VerticalAlignment="Top"/>
+               <Label Content="and may fail on large files." Margin="36,123,10,0" Height="28" VerticalAlignment="Top"/>
+               <Label Content="Image (optional):" Width="100" Margin="10,151,401,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox6" Height="23" TextWrapping="NoWrap" Margin="128,155,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,155,10,0" Click="Button_Click_6" Height="23" VerticalAlignment="Top"/>
+               <Label Content="Image for the person you want to process. Should be a front portrait." Margin="36,178,10,0" Height="25" VerticalAlignment="Top"/>
+               <Label Content="Processes number (optional):" Margin="10,208,327,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox x:Name="textbox7" Height="23" TextWrapping="NoWrap" Margin="184,212,294,0" VerticalAlignment="Top"/>
+               <Button Content="Extract faces" Margin="399,555,10,10" Click="Button_Click_5"/>
+            </Grid>
+         </TabItem>
+         <TabItem Header="Train" >
+            <Grid>
+               <Label Content="Input data A:" Width="100" Margin="10,10,401,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Input data B:" Width="100" Margin="10,42,401,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Output model:" Width="100" Margin="10,74,401,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox8" Height="23" TextWrapping="NoWrap" Margin="128,14,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,46,10,0" Click="Button_Click_8" Height="23" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox9" Height="23" TextWrapping="NoWrap" Margin="128,46,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,14,10,0" Click="Button_Click_7" Height="23" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox10" Height="23" TextWrapping="NoWrap" Margin="128,78,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,78,10,0" Click="Button_Click_9" Height="23" VerticalAlignment="Top"/>
+               <Label Content="Save interval:" Width="100" Margin="10,106,401,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox x:Name="textbox11" Text="100" Height="23" TextWrapping="NoWrap" Margin="128,110,334,0" VerticalAlignment="Top"/>
+               <Label Content="Trainer:" Width="100" Margin="10,138,401,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox3" Margin="128,140,303,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="Original" Tag="Original"/>
+                  <ComboBoxItem Content="LowMem" Tag="LowMem"/>
+                  <ComboBoxItem Content="GAN" Tag="GAN"/>
+               </ComboBox>
+               <Label Content="Select LowMem for cards &lt; 2gb." Margin="221,138,-175,0" Height="25" VerticalAlignment="Top"/>
+               <Button Content="Train" Margin="399,555,10,10" Click="Button_Click_10"/>
+               <Label Content="Batch size:" Width="100" Margin="10,165,401,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox4" Margin="128,167,303,0" SelectedIndex="6" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="2" Tag="2"/>
+                  <ComboBoxItem Content="4" Tag="4"/>
+                  <ComboBoxItem Content="8" Tag="8"/>
+                  <ComboBoxItem Content="16" Tag="16"/>
+                  <ComboBoxItem Content="32" Tag="32"/>
+                  <ComboBoxItem Content="64" Tag="64"/>
+                  <ComboBoxItem Content="128" Tag="128"/>
+                  <ComboBoxItem Content="256" Tag="256"/>
+                  <ComboBoxItem Content="512" Tag="512"/>
+                  <ComboBoxItem Content="1024" Tag="1024"/>
+                  <ComboBoxItem Content="2048" Tag="2048"/>
+                  <ComboBoxItem Content="4096" Tag="4096"/>
+               </ComboBox>
+               <Label Content="Processor:" Width="100" Margin="10,192,401,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox5" Margin="128,194,303,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="CPU" Tag="CPU"/>
+                  <ComboBoxItem Content="GPU" Tag="GPU"/>
+               </ComboBox>
+               <Label Content="For GPU CUDA must be installed (Capability &gt;= 3.0)" Margin="221,192,-175,0" Height="25" VerticalAlignment="Top"/>
+            </Grid>
+         </TabItem>
+         <TabItem Header="Convert video">
+            <Grid>
+               <Label Content="Input video:" Width="100" Margin="6,10,405,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Output video:" Width="100" Margin="6,42,405,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Model directory:" Width="100" Margin="6,74,405,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox12" Height="23" TextWrapping="NoWrap" Margin="128,14,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,46,10,0" Height="23" VerticalAlignment="Top" Click="Button_Click_13"/>
+               <TextBox Width="349" x:Name="textbox13" Height="23" TextWrapping="NoWrap" Margin="128,46,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,14,10,0" Height="23" VerticalAlignment="Top" Click="Button_Click_11"/>
+               <TextBox Width="349" x:Name="textbox14" Height="23" TextWrapping="NoWrap" Margin="128,78,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,78,10,0" Height="23" VerticalAlignment="Top" Click="Button_Click_12"/>
+               <Label Content="Trainer:" Width="100" Margin="6,109,405,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox6" Margin="128,111,303,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="Original" Tag="Original"/>
+                  <ComboBoxItem Content="LowMem" Tag="LowMem"/>
+                  <ComboBoxItem Content="GAN" Tag="GAN"/>
+               </ComboBox>
+               <Button Content="Convert video" Margin="399,555,10,10" Click="Button_Click_15"/>
+               <Label Content="Swap model:" Width="100" Margin="6,136,405,0" Height="27" VerticalAlignment="Top"/>
+               <CheckBox x:Name="checkbox1" Content="Instead of A -> B, swap B -> A." HorizontalAlignment="Left" Margin="128,142,0,0" VerticalAlignment="Top"/>
+               <Label Content="Converter:" Width="100" Margin="6,163,405,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox7" Margin="128,165,303,0" SelectedIndex="0" Height="22" VerticalAlignment="Top" SelectionChanged="combobox7_SelectionChanged">
+                  <ComboBoxItem Content="Masked" Tag="Masked"/>
+                  <ComboBoxItem Content="Adjust" Tag="Adjust"/>
+                  <ComboBoxItem Content="GAN" Tag="GAN"/>
+               </ComboBox>
+               <Label Content="Detector:" Width="100" Margin="6,190,405,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox8" Margin="128,192,303,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="HOG" Tag="hog"/>
+                  <ComboBoxItem Content="CNN" Tag="cnn"/>
+               </ComboBox>
+               <Label Content="'CNN' detects much more angles but will be much more resource intensive" Margin="36,217,10,0" Height="25" VerticalAlignment="Top"/>
+               <Label Content="and may fail on large files." Margin="36,233,131,0" Height="28" VerticalAlignment="Top"/>
+               <Label Content="Image (optional):" Width="100" Margin="6,261,405,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox Width="349" x:Name="textbox15" Height="23" TextWrapping="NoWrap" Margin="128,265,36,0" VerticalAlignment="Top"/>
+               <Button Content="..." Margin="475,265,10,0" Height="23" VerticalAlignment="Top" Click="Button_Click_14"/>
+               <Label Content="Image for the person you want to process. Should be a front portrait." Margin="36,288,10,0" Height="25" VerticalAlignment="Top"/>
+               <Label Content="Blur size (optional):" Margin="6,318,392,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox x:Name="textbox16" HorizontalAlignment="Left" Margin="128,324,0,0" VerticalAlignment="Top" Width="53"/>
+               <Label Content="(Masked converter only)" Margin="181,319,185,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Seamless mode:" Width="100" Margin="6,345,405,0" Height="27" VerticalAlignment="Top"/>
+               <CheckBox x:Name="checkbox2" Content="(Masked converter only)" HorizontalAlignment="Left" Margin="128,351,0,0" VerticalAlignment="Top"/>
+               <Label Content="Mask type:" Width="100" Margin="6,369,405,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox9" Margin="128,371,270,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="Rect" Tag="rect"/>
+                  <ComboBoxItem Content="Facehull" Tag="facehull"/>
+                  <ComboBoxItem Content="Facehull And Rect" Tag="facehullandrect"/>
+               </ComboBox>
+               <Label Content="(Masked converter only)" Margin="241,369,125,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Kernel size (optional):" Margin="6,396,377,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox x:Name="textbox17" HorizontalAlignment="Left" Margin="128,402,0,0" VerticalAlignment="Top" Width="53"/>
+               <Label Content="(Masked converter only)" Margin="181,397,185,0" Height="27" VerticalAlignment="Top"/>
+               <Label Content="Smooth mask:" Width="100" Margin="6,423,405,0" Height="27" VerticalAlignment="Top"/>
+               <CheckBox IsEnabled="False" x:Name="checkbox3" Content="(Adjust converter only)" HorizontalAlignment="Left" Margin="128,429,0,0" VerticalAlignment="Top"/>
+               <Label Content="Average color:" Width="100" Margin="6,450,405,0" Height="27" VerticalAlignment="Top"/>
+               <CheckBox IsEnabled="False" x:Name="checkbox4" Content="(Adjust converter only)" HorizontalAlignment="Left" Margin="128,456,0,0" VerticalAlignment="Top"/>
+               <Label Content="Processor:" Width="100" Margin="7,477,406,0" Height="27" VerticalAlignment="Top"/>
+               <ComboBox x:Name="combobox10" Margin="128,479,303,0" SelectedIndex="0" Height="22" VerticalAlignment="Top">
+                  <ComboBoxItem Content="CPU" Tag="CPU"/>
+                  <ComboBoxItem Content="GPU" Tag="GPU"/>
+               </ComboBox>
+               <Label Content="FPS:" Margin="6,504,377,0" Height="27" VerticalAlignment="Top"/>
+               <TextBox x:Name="textbox18" Text="25" HorizontalAlignment="Left" Margin="128,509,0,0" VerticalAlignment="Top" Width="53"/>
+            </Grid>
+         </TabItem>
+
+      </TabControl>
+   </Grid>
+</Window>
